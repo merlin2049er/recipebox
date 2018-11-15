@@ -1,9 +1,10 @@
 class RecipesController < ApplicationController
   before_action :find_recipe, only: [:show, :edit, :update, :destroy]
+  before_action  :authenticate_user!, except: [:index, :show]
 
   def index
 
-    @recipe = Recipe.all.order("create_at DESC")
+    @recipe = Recipe.all.order("created_at DESC")
   end
 
   def show
@@ -14,7 +15,7 @@ class RecipesController < ApplicationController
 
   def destroy
     @recipe.destroy
-    redirect_to root_path, "Successfully deleted recipe"
+    redirect_to root_path,  notice: "Successfully deleted recipe"
   end
 
   def update
@@ -27,11 +28,11 @@ class RecipesController < ApplicationController
 
 
   def new
-    @recipe = Recipe.new
+	   @recipe = current_user.recipes.build
   end
 
   def create
-    @recipe = Recipe.new(recipe_params)
+    @recipe = current_user.recipes.build(recipe_params)
 
     if @recipe.save
       redirect_to @recipe, notice: 'Successfully created new recipe'
