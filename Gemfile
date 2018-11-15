@@ -46,7 +46,7 @@ gem 'jquery-rails'
 gem 'paperclip', '~> 6.1'
 
 gem 'devise'
-gem 'cocoon', '~> 1.2', '>= 1.2.12'
+gem 'cocoon', '~> 1.2.6'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

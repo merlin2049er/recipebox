@@ -241,7 +241,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   chromedriver-helper
-  cocoon (~> 1.2, >= 1.2.12)
+  cocoon (~> 1.2.6)
   coffee-rails (~> 4.2)
   devise
   haml (~> 5.0, >= 5.0.4)
